@@ -1,7 +1,8 @@
 
+<a href="https://sonipri.github.io/EcoCleanR/"><img src="man/figures/logo.png" align="right" height="138" alt="EcoCleanR website" /></a>
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# EcoCleanR 1.0.1
+# EcoCleanR 1.0.2
 
 **The goal of EcoCleanR is to provides functions to integrate
 biodiversity data from multiple aggregates and offers a step-by-step
@@ -27,21 +28,29 @@ Key features:<br>
     Create a summary and plot to represent suitable range of a species
     for spatial and non spatial attributes<br>
 
-## Installation from GitHub
+## Installation from CRAN (stable version) or GitHub (development version)
+
+      install.package("EcoCleanR")#cran version
 
 Install the development version of *EcoCleanR* from
-[GitHub](https://github.com/) with: \[Private\]
+[GitHub](https://github.com/sonipri/EcoCleanR):
 
-How to install package through zip file:<br>
+How to install package from github or through zip file downloaded from
+github:<br>
 
 1)  Install *devtools* and *remotes* packages and load them.<br>
 
     \#install.packages(“devtools”)<br> \#install.packages(“remotes”)<br>
     \#library(devtools)<br> \#library(remotes)<br>
 
-2)  Install *EcoCleanR* package from zip file.<br>
+2)  Install *EcoCleanR* package from \[github\] development version
 
-    \#devtools::install_local(“EcoCleanR-xxx.zip”, dependencies = TRUE)
+    \#remotes::install_github(“sonipri/EcoCleanR”)
+
+or install *EcoCleanR* package from downloaded zip file.<br>
+
+      #devtools::install_local("EcoCleanR.zip",
+      dependencies = TRUE)                   
 
 3)  unzip the zip file EcoCleanR and set it as working directory.<br>
 
@@ -131,7 +140,7 @@ ec_geographic_map(ecodata,
 #> (`geom_point()`).
 ```
 
-<img src="man/figures/README-example-1.png" width="70%" />
+<img src="man/figures/README-example-1.png" alt="" width="70%" />
 
 ``` r
 
@@ -242,7 +251,7 @@ ec_geographic_map_w_flag(
 #> • colour : "Flag"
 ```
 
-<img src="man/figures/README-example-2.png" width="70%" />
+<img src="man/figures/README-example-2.png" alt="" width="70%" />
 
 ``` r
 # at this stage we can decide the acceptable outlier probability and after removing higher probable a new datafram called ecodata_cleaned can be source of summary table (next step)
@@ -252,7 +261,7 @@ data("ecodata_cleaned")
 ec_geographic_map(ecodata_cleaned)
 ```
 
-<img src="man/figures/README-example-3.png" width="70%" />
+<img src="man/figures/README-example-3.png" alt="" width="70%" />
 
 ``` r
 
@@ -279,7 +288,7 @@ ec_plot_var_range(
 )
 ```
 
-<img src="man/figures/README-example-4.png" width="70%" />
+<img src="man/figures/README-example-4.png" alt="" width="70%" />
 
 Further documents:<br>
 
@@ -295,3 +304,10 @@ visualization at vignettes/article/stepbystep.rmd.<br>
 \*see citation guidelines for the downloaded data from gbif, obis,
 idigbio and InvertEbase \[cite_data\] at
 vignettes/article/cite_data.rmd.
+
+### Acknowledgements
+
+- I thank reviewers, editors, and colleagues who provided valuable
+  feedback on the design and development of this package. Their
+  suggestions and discussions helped improve functionality and
+  usability.

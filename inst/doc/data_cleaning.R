@@ -2,60 +2,60 @@
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
-  # eval = FALSE,
+  eval = FALSE,
   fig.width = 8,
   fig.height = 6,
   out.width = "70%"
 )
 
 ## ----setup--------------------------------------------------------------------
-# package loading
-library(EcoCleanR)
-library(dplyr)
+# # package loading
+# library(EcoCleanR)
+# library(dplyr)
 
 ## -----------------------------------------------------------------------------
-# provide example species name
-species_name <- "Mexacanthina lugubris"
+# # provide example species name
+# species_name <- "Mexacanthina lugubris"
 
 ## -----------------------------------------------------------------------------
-ec_geographic_map(ecodata,
-  latitude = "decimalLatitude",
-  longitude = "decimalLongitude"
-)
+# ec_geographic_map(ecodata,
+#   latitude = "decimalLatitude",
+#   longitude = "decimalLongitude"
+# )
 
 ## -----------------------------------------------------------------------------
-comparison <- ec_worms_synonym(species_name,
-  ecodata,
-  scientificName = "scientificName"
-)
-print(comparison)
-# compare the columns to know if any taxa found that is not a synonym in WoRMS data base, filter bad taxa from ecodata using dplyr::filter()
+# comparison <- ec_worms_synonym(species_name,
+#   ecodata,
+#   scientificName = "scientificName"
+# )
+# print(comparison)
+# # compare the columns to know if any taxa found that is not a synonym in WoRMS data base, filter bad taxa from ecodata using dplyr::filter()
 
 ## -----------------------------------------------------------------------------
-ecodata_cl <- ec_filter_by_uncertainty(ecodata,
-  uncertainty_col = "coordinateUncertaintyInMeters",
-  percentile = 0.95,
-  ask = FALSE,
-  latitude = "decimalLatitude",
-  longitude = "decimalLongitude"
-)
-str(ecodata_cl[, 1:3])
-### plot the map
-ec_geographic_map(ecodata_cl,
-  latitude = "decimalLatitude",
-  longitude = "decimalLongitude"
-)
+# ecodata_cl <- ec_filter_by_uncertainty(ecodata,
+#   uncertainty_col = "coordinateUncertaintyInMeters",
+#   percentile = 0.95,
+#   ask = FALSE,
+#   latitude = "decimalLatitude",
+#   longitude = "decimalLongitude"
+# )
+# str(ecodata_cl[, 1:3])
+# ### plot the map
+# ec_geographic_map(ecodata_cl,
+#   latitude = "decimalLatitude",
+#   longitude = "decimalLongitude"
+# )
 
 ## -----------------------------------------------------------------------------
-ecodata_cl$flag_precision <- ec_flag_precision(ecodata_cl,
-  latitude = "decimalLatitude",
-  longitude = "decimalLongitude"
-)
-
-# filter the flag - flag_cordinate_precision
-ecodata_cl <- ecodata_cl %>%
-  filter(flag_precision != 1)
-str(ecodata_cl[1:3])
+# ecodata_cl$flag_precision <- ec_flag_precision(ecodata_cl,
+#   latitude = "decimalLatitude",
+#   longitude = "decimalLongitude"
+# )
+# 
+# # filter the flag - flag_cordinate_precision
+# ecodata_cl <- ecodata_cl %>%
+#   filter(flag_precision != 1)
+# str(ecodata_cl[1:3])
 
 ## ----heavy-processing-0, eval = FALSE-----------------------------------------
 # # This is a heavy processing step, won’t execute during vignette building.
@@ -129,35 +129,35 @@ str(ecodata_cl[1:3])
 #   )
 
 ## -----------------------------------------------------------------------------
-# pre-saved file ecodata_with_outliers instead of using ecodata_cl
-### map view to see records with outlier probability
-ec_geographic_map_w_flag(ecodata_with_outliers,
-  flag_column = "outliers",
-  latitude = "decimalLatitude",
-  longitude = "decimalLongitude"
-)
+# # pre-saved file ecodata_with_outliers instead of using ecodata_cl
+# ### map view to see records with outlier probability
+# ec_geographic_map_w_flag(ecodata_with_outliers,
+#   flag_column = "outliers",
+#   latitude = "decimalLatitude",
+#   longitude = "decimalLongitude"
+# )
 
 ## -----------------------------------------------------------------------------
-### mapview to visualize accepted data
-ec_geographic_map(ecodata_cleaned,
-  latitude = "decimalLatitude",
-  longitude = "decimalLongitude"
-)
+# ### mapview to visualize accepted data
+# ec_geographic_map(ecodata_cleaned,
+#   latitude = "decimalLatitude",
+#   longitude = "decimalLongitude"
+# )
 
 ## -----------------------------------------------------------------------------
-env_layers <- c("BO_sstmean", "BO_sstmax", "BO_sstmin")
-data("ecodata_cleaned")
-summary_table <- ec_var_summary(ecodata_cleaned,
-  latitude = "decimalLatitude",
-  longitude = "decimalLongitude",
-  env_layers
-)
-head(summary_table)
-
-ec_plot_var_range(ecodata_with_outliers,
-  summary_df = summary_table,
-  latitude = "decimalLatitude",
-  longitude = "decimalLongitude",
-  env_layers = env_layers
-)
+# env_layers <- c("BO_sstmean", "BO_sstmax", "BO_sstmin")
+# data("ecodata_cleaned")
+# summary_table <- ec_var_summary(ecodata_cleaned,
+#   latitude = "decimalLatitude",
+#   longitude = "decimalLongitude",
+#   env_layers
+# )
+# head(summary_table)
+# 
+# ec_plot_var_range(ecodata_with_outliers,
+#   summary_df = summary_table,
+#   latitude = "decimalLatitude",
+#   longitude = "decimalLongitude",
+#   env_layers = env_layers
+# )
 
