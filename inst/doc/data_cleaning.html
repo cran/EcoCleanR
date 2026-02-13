@@ -366,21 +366,27 @@ Below is the demonstration of each steps:</p>
 <div id="step1-remove-duplicates" class="section level2">
 <h2>Step1: Remove duplicates</h2>
 <p>Remove duplicates from the merged dataset which is a product after
-merging data from various sources</p>
-<p><code>ec_rm_duplicate</code> will return an occurrence table
-“ecodata” after removing duplicates based on unique catalog numbers,
-while retaining abundance counts wherever available.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a>ecodata <span class="ot">&lt;-</span> <span class="fu">ec_rm_duplicate</span>(Mixdb.occ, <span class="at">catalogNumber =</span> <span class="st">&quot;catalogNumber&quot;</span>, <span class="at">abundance =</span> <span class="st">&quot;abundance&quot;</span>)</span>
+merging data from various sources.<br>
+<code>ec_rm_duplicate_occurid</code> will return an occurrence table
+“ecodata” after removing duplicates based on unique occurrenceID, while
+retaining abundance counts wherever available.<br>
+<code>ec_rm_duplicate</code> will return an occurrence table “ecodata”
+after removing duplicates based on unique catalog numbers, while
+retaining abundance counts wherever available.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a>ecodata <span class="ot">&lt;-</span> <span class="fu">ec_rm_duplicate_occuid</span>(Mixdb.occ,  <span class="at">occurrenceID =</span> <span class="st">&quot;occurrenceID&quot;</span>, <span class="at">abundance =</span> <span class="st">&quot;abundance&quot;</span>)</span>
 <span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a><span class="fu">str</span>(ecodata[,<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>])</span>
 <span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a></span>
-<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a><span class="do">### Optional to perform: check the institution code</span></span>
-<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a><span class="co"># inst_counts &lt;- ecodata %&gt;%</span></span>
-<span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a><span class="co"># group_by(institutionCode) %&gt;%</span></span>
-<span id="cb3-7"><a href="#cb3-7" tabindex="-1"></a><span class="co"># summarise(record_count = n(), .groups = &quot;drop&quot;)</span></span>
-<span id="cb3-8"><a href="#cb3-8" tabindex="-1"></a></span>
-<span id="cb3-9"><a href="#cb3-9" tabindex="-1"></a><span class="do">### optional to perform..</span></span>
-<span id="cb3-10"><a href="#cb3-10" tabindex="-1"></a><span class="co"># ecodata &lt;- ecodata %&gt;%</span></span>
-<span id="cb3-11"><a href="#cb3-11" tabindex="-1"></a><span class="co"># filter(is.na(institutionCode) | institutionCode != &quot;NRM&quot;)</span></span></code></pre></div>
+<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a>ecodata <span class="ot">&lt;-</span> <span class="fu">ec_rm_duplicate</span>(Mixdb.occ, <span class="at">catalogNumber =</span> <span class="st">&quot;catalogNumber&quot;</span>, <span class="at">abundance =</span> <span class="st">&quot;abundance&quot;</span>)</span>
+<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a><span class="fu">str</span>(ecodata[,<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>])</span>
+<span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" tabindex="-1"></a><span class="do">### Optional to perform: check the institution code</span></span>
+<span id="cb3-8"><a href="#cb3-8" tabindex="-1"></a><span class="co"># inst_counts &lt;- ecodata %&gt;%</span></span>
+<span id="cb3-9"><a href="#cb3-9" tabindex="-1"></a><span class="co"># group_by(institutionCode) %&gt;%</span></span>
+<span id="cb3-10"><a href="#cb3-10" tabindex="-1"></a><span class="co"># summarise(record_count = n(), .groups = &quot;drop&quot;)</span></span>
+<span id="cb3-11"><a href="#cb3-11" tabindex="-1"></a></span>
+<span id="cb3-12"><a href="#cb3-12" tabindex="-1"></a><span class="do">### optional to perform..</span></span>
+<span id="cb3-13"><a href="#cb3-13" tabindex="-1"></a><span class="co"># ecodata &lt;- ecodata %&gt;%</span></span>
+<span id="cb3-14"><a href="#cb3-14" tabindex="-1"></a><span class="co"># filter(is.na(institutionCode) | institutionCode != &quot;NRM&quot;)</span></span></code></pre></div>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="fu">ec_geographic_map</span>(ecodata,</span>
 <span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a>  <span class="at">latitude =</span> <span class="st">&quot;decimalLatitude&quot;</span>,</span>
 <span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a>  <span class="at">longitude =</span> <span class="st">&quot;decimalLongitude&quot;</span></span>

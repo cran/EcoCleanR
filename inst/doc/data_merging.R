@@ -20,7 +20,7 @@ knitr::opts_chunk$set(
 # taxonkey <- name_backbone(species_name)$usageKey
 
 ## -----------------------------------------------------------------------------
-# attribute_list <- c("source", "catalogNumber", "basisOfRecord", "occurrenceStatus", "institutionCode", "verbatimEventDate", "scientificName", "individualCount", "organismQuantity", "abundance", "decimalLatitude", "decimalLongitude", "coordinateUncertaintyInMeters", "locality", "verbatimLocality", "municipality", "county", "stateProvince", "country", "countryCode")
+# attribute_list <- c("source", "catalogNumber", "basisOfRecord", "occurrenceStatus", "occurrenceID", "institutionCode", "verbatimEventDate", "scientificName", "individualCount", "organismQuantity", "abundance", "decimalLatitude", "decimalLongitude", "coordinateUncertaintyInMeters", "locality", "verbatimLocality", "municipality", "county", "stateProvince", "country", "countryCode")
 
 ## -----------------------------------------------------------------------------
 # gbif.occ <- occ_data(taxonKey = taxonkey, occurrenceStatus = NULL, limit = 10000L)$data

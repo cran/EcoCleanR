@@ -1,7 +1,7 @@
 Package: EcoCleanR
-Title: EcoCleanR: Enhancing Data Quality of Biogeographic Ranges with
-        Application for Marine Invertebrates
-Version: 1.0.2
+Title: Enhancing Data Quality of Biogeographic Ranges with Application
+        for Marine Invertebrates
+Version: 1.0.3
 Language: en-US
 Authors@R: c(
   person(given = "Priyanka",
@@ -21,22 +21,24 @@ Authors@R: c(
          family = "Barve",
          role = "ctb",
          comment = "Code development feedback and advising"))
-Description: Provides step-by-step automation for integrating biodiversity data from multiple online aggregators, merging and cleaning datasets while addressing challenges such as taxonomic inconsistencies, georeferencing issues, and spatial or environmental outliers. Includes functions to extract environmental data and to define the biogeographic ranges in which species are most likely to occur.
+Description: Provides step-by-step automation for integrating biodiversity data from multiple online aggregators, merging and cleaning datasets while addressing challenges such as taxonomic inconsistencies, georeferencing issues, and spatial or environmental outliers. Includes functions to extract environmental data and to define the biogeographic ranges in which species are most likely to occur. For methodological details see the associated publication.<doi: 10.1002/ecog.08203>.
 License: MIT + file LICENSE
 Encoding: UTF-8
 RoxygenNote: 7.3.3
 Suggests: knitr, rgbif, robis, ridigbio, rmarkdown, testthat (>= 3.0.0)
 Config/testthat/edition: 3
 Imports: dplyr, geodata, geosphere, ggplot2, mregions2, patchwork,
-        rlang, sdmpredictors, sf, taxize, terra, tidyr
+        rlang, sdmpredictors, sf, worrms, terra, tidyr
 Depends: R (>= 3.5)
 LazyData: true
 VignetteBuilder: knitr
 Config/Needs/website: rmarkdown
-URL: https://sonipri.github.io/EcoCleanR/,
-        https://sonipri.github.io/EcoCleanR/
+URL: https://github.com/sonipri/EcoCleanR,
+        https://sonipri.github.io/EcoCleanR/,
+        https://doi.org/10.1002/ecog.08203
+BugReports: https://github.com/sonipri/EcoCleanR/issues
 NeedsCompilation: no
-Packaged: 2026-02-08 02:16:51 UTC; sonip
+Packaged: 2026-02-13 03:50:19 UTC; sonip
 Author: Priyanka Soni [aut, cre] (ORCID:
     <https://orcid.org/0000-0001-8358-1645>),
   Austin Hendy [ctb] (Manuscript mentoring and advising),
@@ -44,4 +46,4 @@ Author: Priyanka Soni [aut, cre] (ORCID:
   Vijay Barve [ctb] (Code development feedback and advising)
 Maintainer: Priyanka Soni <sonip@usc.edu>
 Repository: CRAN
-Date/Publication: 2026-02-11 19:20:02 UTC
+Date/Publication: 2026-02-13 09:50:21 UTC
